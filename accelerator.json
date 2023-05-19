@@ -1,0 +1,78 @@
+{
+    "id": "51a9ef33-d677-4dde-a240-28423e07d518",
+    "name": "Manually Assign Agent to Conversation Data Action Module",
+    "description": "A Terraform/CX as Code remote module for the following Genesys Cloud public API operation: Manually Assign Agent to Conversation",
+    "origin": "genesys",
+    "type": "module",
+    "classification": "Conversations",
+    "tags": [
+        "Conversations"
+    ],
+    "permissions": [
+        "conversation:call:pull",
+        "conversation:call:assign",
+        "conversation:callback:pull",
+        "conversation:callback:assign",
+        "conversation:webchat:pull",
+        "conversation:webchat:assign",
+        "conversation:email:pull",
+        "conversation:email:assign",
+        "conversation:message:pull",
+        "conversation:message:assign"
+    ],
+    "documentation": [],
+    "presentation": [
+        {
+            "title": "Page 1",
+            "schema": {
+                "title": "Data Action Setup",
+                "description": "Setup your data action deployment",
+                "type": "object",
+                "properties": [
+                    {
+                        "action_name": {
+                            "description": "The name for the data action",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "action_category": {
+                            "description": "Category of action",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "integration_id": {
+                            "description": "The ID of the integration this action is associated with.",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "secure_data_action": {
+                            "description": "Indication of whether or not the action is designed to accept sensitive data.",
+                            "type": "boolean",
+                            "default": "false"
+                        }
+                    }
+                ],
+                "required": [
+                    "action_name",
+                    "action_category",
+                    "integration_id"
+                ]
+            }
+        }
+    ],
+    "results": {
+        "entities": [
+            {
+                "type": "dataAction",
+                "visibility": "VISIBLE"
+            },
+            {
+                "type": "integration",
+                "visibility": "VISIBLE"
+            }
+        ]
+    }
+}

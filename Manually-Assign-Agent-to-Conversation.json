@@ -1,0 +1,46 @@
+{
+  "name": "Manually Assign Agent to Conversation",
+  "integrationType": "purecloud-data-actions",
+  "actionType": "custom",
+  "config": {
+    "request": {
+      "requestUrlTemplate": "/api/v2/conversations/${input.conversationId}/assign",
+      "requestType": "POST",
+      "headers": {
+        "UserAgent": "PureCloudIntegrations/1.0",
+        "Content-Type": "application/json"
+      },
+      "requestTemplate": "{\r\n \"id\": \"${input.agentId}\" \r\n}"
+    },
+    "response": {
+      "translationMap": {},
+      "translationMapDefaults": {},
+      "successTemplate": "${rawResult}"
+    }
+  },
+  "contract": {
+    "input": {
+      "inputSchema": {
+        "type": "object",
+        "required": ["conversationId", "agentId"],
+        "properties": {
+          "conversationId": {
+            "type": "string"
+          },
+          "agentId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "output": {
+      "successSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": true
+      }
+    }
+  },
+  "secure": false
+}
